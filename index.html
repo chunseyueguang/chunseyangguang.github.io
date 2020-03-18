@@ -349,20 +349,20 @@
 <p>2.保存工作簿“工资.xlsm”及其代码，存放于T盘中。</p>
 <p>样图：<br><img src="../uploads/excel1_examples1.png" alt=""></p>
 <p>（1）在工作表“奖金”的E列，利用公式计算奖金（奖金=工作量*20，但若违纪奖金为零）；</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel1_001.png" alt=""></p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel1_002.png" alt=""></p>
+<p><img src="../uploads/excel1_001.png" alt=""></p>
+<p><img src="../uploads/excel1_002.png" alt=""></p>
 <p>结果：</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel1_003.png" alt=""></p>
+<p><img src="../uploads/excel1_003.png" alt=""></p>
 <p>参考：</p>
 <p><a href="https://support.office.com/zh-cn/article/将-if-函数与-and、or-以及-not-函数配合使用-d895f58c-b36c-419e-b1f2-5c193a236d97" target="_blank" rel="noopener">链接：<strong>将 IF 函数与 AND、OR 以及 NOT 函数配合使用</strong></a></p>
 <p>（2）利用VLOOKUP函数，将“奖金”合并到工作表“工资表”的对应列；</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel2_001.png" alt=""></p>
+<p><img src="../uploads/excel2_001.png" alt=""></p>
 <p>选中A列</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel2_002.png" alt=""></p>
+<p><img src="../uploads/excel2_002.png" alt=""></p>
 <p>选中A-&gt;E从 （注释：匹配变量那一栏开始选 一直到匹配数据的那一栏为止）</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel2_003.png" alt=""></p>
+<p><img src="../uploads/excel2_003.png" alt=""></p>
 <p>在Col_index_num中输入5。在Range_lookup那一栏输入0（也就是没有数据的显示错误）。</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel2_004.png" alt=""></p>
+<p><img src="../uploads/excel2_004.png" alt=""></p>
 <p>=VLOOKUP(A:A,奖金!A:E,5,0),然后向下拖.<br>以上公式为：工资表中F2单元格要根据前列的工号从奖金表中复制奖金,A:A为功耗列，奖金!A:E为奖金表中的工号列和奖金列，5表示从工号开始的第5列,0表示唯一对应项。</p>
 <p>参考：</p>
 <ol>
@@ -372,22 +372,22 @@
 <li><a href="https://www.51wikihow.com/excel/excel-how-to-find-values-from-another-workbook-via-vlookup.html" target="_blank" rel="noopener">https://www.51wikihow.com/excel/excel-how-to-find-values-from-another-workbook-via-vlookup.html</a></li>
 </ol>
 <p>（3）根据工作表“工资表”数据，在工作表“职称分析”中，利用COUNTIF函数统计每类职称人数；</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel3_001.png" alt=""></p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel3_002.png" alt=""></p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel3_003.png" alt=""></p>
+<p><img src="../uploads/excel3_001.png" alt=""></p>
+<p><img src="../uploads/excel3_002.png" alt=""></p>
+<p><img src="../uploads/excel3_003.png" alt=""></p>
 <p>参考：</p>
 <p><a href="https://support.office.com/zh-cn/article/countif-函数-e0de10c6-f885-4e71-abb4-1f464816df34?NS=EXCEL&Version=19&SysLcid=2052&UiLcid=2052&AppVer=ZXL190&HelpId=xlmain11.chm60394&ui=zh-CN&rs=zh-CN&ad=CN" target="_blank" rel="noopener">https://support.office.com/zh-cn/article/countif-%e5%87%bd%e6%95%b0-e0de10c6-f885-4e71-abb4-1f464816df34?NS=EXCEL&amp;Version=19&amp;SysLcid=2052&amp;UiLcid=2052&amp;AppVer=ZXL190&amp;HelpId=xlmain11.chm60394&amp;ui=zh-CN&amp;rs=zh-CN&amp;ad=CN</a></p>
 <p>（4）在工作表“工资表”中，按“部门”升序；</p>
 <p>在单元格区域中，按照需要的顺序从上到下输入要排序的值并选中，之后点击文件。如下例所示。</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_001.png" alt=""></p>
+<p><img src="../uploads/excel4_001.png" alt=""></p>
 <p>转到“<strong>文件</strong>”&gt;“<strong>选项</strong>”&gt;“<strong>高级</strong>”&gt;“<strong>常规</strong>”&gt;“<strong>编辑自定义序列</strong>”，然后在“<strong>自定义序列</strong>”对话框中单击“<strong>导入</strong>”，然后单击“<strong>确定</strong>”两次。</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_002.png" alt=""></p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_003.png" alt=""></p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_004.png" alt="">在要排序的列中选择单元格。在<strong>“数据”</strong>选项卡的<strong>“排序和筛选”</strong>组中，单击<strong>“排序”</strong>。</p>
+<p><img src="../uploads/excel4_002.png" alt=""></p>
+<p><img src="../uploads/excel4_003.png" alt=""></p>
+<p><img src="../uploads/excel4_004.png" alt="">在要排序的列中选择单元格。在<strong>“数据”</strong>选项卡的<strong>“排序和筛选”</strong>组中，单击<strong>“排序”</strong>。</p>
 <p>在“<strong>排序</strong>”对话框中“<strong>列</strong>”下的“<strong>排序依据</strong>”框中，选择要按自定义序列排序的列。</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_005.png" alt=""></p>
+<p><img src="../uploads/excel4_005.png" alt=""></p>
 <p>在“<strong>次序</strong>”下，选择“<strong>自定义序列</strong>”。在“<strong>自定义序列</strong>”对话框中，选择所需的序列。 以上例中创建的自定义序列为例，单击“<strong>一系、二系、三系、四系</strong>”。确定。</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_006.png" alt=""></p>
+<p><img src="../uploads/excel4_006.png" alt=""></p>
 <p>结果</p>
 <p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_007.png" alt=""></p>
 <p>参考：</p>
@@ -395,14 +395,14 @@
 <p>（5）在模块1的“分页()”中，填充代码实现在工作表“工资表”中，自动插入分页符，使得每部门职工强制分页；</p>
 <p>如果Excel上没有显示“开发工具”可据以下方法显示“开发工具”</p>
 <p>打开Excel，如下图所示。然后在“文件”菜单中找到“选项”。如下图。</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel5_001.png" alt=""></p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel5_002.png" alt=""></p>
+<p><img src="../uploads/excel5_001.png" alt=""></p>
+<p><img src="../uploads/excel5_002.png" alt=""></p>
 <p>找到“自定义功能区”，如下图中箭头提示的按钮。</p>
 <p>在“主选项卡”默认情况下，我们就看到了关于“开发工具”的选择项了。把前面的方框点击勾选。如下图。</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel5_003.png" alt=""></p>
+<p><img src="../uploads/excel5_003.png" alt=""></p>
 <p>结果：</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel5_004.png" alt=""></p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel5_005.png" alt=""></p>
+<p><img src="../uploads/excel5_004.png" alt=""></p>
+<p><img src="../uploads/excel5_005.png" alt=""></p>
 
           
         
@@ -889,25 +889,25 @@
 <figure class="highlight plain"><figcaption><span>bush</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">py -3 -m venv .venv</span><br><span class="line">.venv\scripts\activate</span><br></pre></td></tr></table></figure>
 
 <p>2.使用<strong>Python</strong>选择新环境<strong>：</strong>从 <strong>“命令面板”中</strong> <strong>选择“解释器”</strong>命令。</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C002.png" alt=""></p>
+<p><img src="../uploads/002.png" alt=""></p>
 <p>3.安装软件包</p>
 <figure class="highlight plain"><figcaption><span>bush</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install matplotlib</span><br></pre></td></tr></table></figure>
 
 <p>4.立即重新运行程序（带调试器或不带调试器），过一会儿，将出现一个带有输出的绘图窗口：</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C006.png" alt=""></p>
+<p><img src="../uploads/006.png" alt=""></p>
 <p>5.完成后，在终端窗口中键入<code>deactivate</code>以停用虚拟环境。</p>
 <p>使用vscode编写python web （模板flask）</p>
 <p>1.新建一个文件夹，hello_flask</p>
 <p>2.在该文件夹中，使用以下命令（适用于您的计算机）创建一个<code>env</code>基于当前解释器命名的虚拟环境：</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C1.png" alt=""></p>
+<p><img src="../uploads/1.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows</span><br><span class="line">python -m venv env</span><br></pre></td></tr></table></figure>
 
 <p>3.打开vscode（运行 code .）使用“ <strong>文件”</strong> &gt;“ <strong>打开文件夹”</strong>命令来在VS Code中打开项目文件夹。</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C2.png" alt=""></p>
+<p><img src="../uploads/2.png" alt=""></p>
 <p>4.在VS Code中，打开“命令面板”（“ <strong>视图”</strong> &gt;“ <strong>命令面板”</strong>或（Ctrl + Shift + P））。然后选择<strong>Python：Select Interpreter</strong>命令：</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C001.png" alt=""></p>
+<p><img src="../uploads/001.png" alt=""></p>
 <p>5.该命令列出了VS Code可以自动定位的可用解释器的列表（您的列表会有所不同；如果看不到所需的解释器，请参阅“ <a href="https://code.visualstudio.com/docs/python/environments" target="_blank" rel="noopener">配置Python环境”</a>）。从列表中，选择项目文件夹中以<code>./env</code>或开头的虚拟环境<code>.\env</code>：</p>
-<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C002.png" alt=""></p>
+<p><img src="../uploads/002.png" alt=""></p>
 <p>6.运行<strong>终端：</strong>从命令面板<strong>创建新的集成终端</strong>（Ctrl + Shift +`），该命令面板将创建终端并通过运行其激活脚本自动激活虚拟环境。</p>
 <p><strong>注意</strong>：在Windows上，如果您的默认终端类型是PowerShell，则可能会看到一个错误，表明它无法运行activate.ps1，因为系统上已禁用了运行脚本。该错误提供了有关如何允许脚本的信息链接。否则，请使用<strong>终端：选择默认外壳</strong>，将“命令提示符”或“ Git Bash”设置为默认值。</p>
 <p>7.通过在VS Code终端中运行以下命令之一，在虚拟环境中安装Flask：</p>
