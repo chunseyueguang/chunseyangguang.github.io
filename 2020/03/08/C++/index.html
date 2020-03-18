@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="&amp;&amp;和||的短路运算&amp;&amp;和||的短路运算，是指如果在进行表达式的运算过程，通过判断已经明确的知道整个表达式的结果，那么就不会进行后面表达式的运算判断。 例如：表达式1 || 表达式2 || 表达式3…|| 表达式n，如果表达式1的运算结果为true，则整个表达式的结果为true，同时不会再对后面的表达式2、表达式3到表达式n进行运算判断。如果表达式1的运算结果为fa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++">
+<meta property="og:url" content="http://sunqingcheng.club/2020/03/08/C++/index.html">
+<meta property="og:site_name" content="纯色月光">
+<meta property="og:description" content="&amp;&amp;和||的短路运算&amp;&amp;和||的短路运算，是指如果在进行表达式的运算过程，通过判断已经明确的知道整个表达式的结果，那么就不会进行后面表达式的运算判断。 例如：表达式1 || 表达式2 || 表达式3…|| 表达式n，如果表达式1的运算结果为true，则整个表达式的结果为true，同时不会再对后面的表达式2、表达式3到表达式n进行运算判断。如果表达式1的运算结果为fa">
+<meta property="article:published_time" content="2020-03-07T18:19:41.161Z">
+<meta property="article:modified_time" content="2020-03-16T10:51:27.936Z">
+<meta property="article:author" content="纯色月光">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://sunqingcheng.club/2020/03/08/C++/"/>
+
+
+
+
+
+  <title>C++ | 纯色月光</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">纯色月光</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-photo"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sunqingcheng.club/2020/03/08/C++/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="纯色月光">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="纯色月光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T02:19:41+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="amp-amp-和-的短路运算"><a href="#amp-amp-和-的短路运算" class="headerlink" title="&amp;&amp;和||的短路运算"></a>&amp;&amp;和||的短路运算</h2><p>&amp;&amp;和||的短路运算，是指如果在进行表达式的运算过程，通过判断已经明确的知道整个表达式的结果，那么就不会进行后面表达式的运算判断。</p>
+<p>例如：<br>表达式1 || 表达式2 || 表达式3…|| 表达式n，如果表达式1的运算结果为true，则整个表达式的结果为true，同时不会再对后面的表达式2、表达式3到表达式n进行运算判断。如果表达式1的运算结果为false，则根据表达式2的运算结果继续判断。<br>表达式1 &amp;&amp; 表达式2 &amp;&amp; 表达式3…&amp;&amp; 表达式n，如果表达式1的运算结果为false，则整个表达式的结果为false，同时不会再对后面的表达式2、表达式3到表达式n进行运算判断。如果表达式1的运算结果为true，则根据表达式2的运算结果继续判断。</p>
+<h3 id="amp-amp-和-的短路运算有什么用？"><a href="#amp-amp-和-的短路运算有什么用？" class="headerlink" title="&amp;&amp;和||的短路运算有什么用？"></a>&amp;&amp;和||的短路运算有什么用？</h3><p>1、由于&amp;&amp;和||的表达式存在短路运算现象，在短路之后不会对后面的表达式进行运算，所以含有&amp;&amp;和||的表达式最好不要进行变量的赋值和运算操作，可以先计算好每个表达式的结果，直接拿结果进行&amp;&amp;和||的运算。<br>在代码编写的时候就要注意这一点，以防由于&amp;&amp;和||的短路运算导致写出来的代码运算结果与预期的不同。<br>2、把能快速确定整个表达式结果true或false的表达式放在前面，这样由于短路运算后面的表达式可能不会被运算到，节省处理器的运算时间。</p>
+<p>例子：</p>
+<p>求 <code>1+2+...+n</code> ，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res=n;</span><br><span class="line">        n&amp;&amp;(res += sumNums(n<span class="number">-1</span>));</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h1><p>向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）。</p>
+<p>1.构造函数</p>
+<ul>
+<li>vector():创建一个空vector</li>
+<li>vector(int nSize):创建一个vector,元素个数为nSize</li>
+<li>vector(int nSize,const t&amp; t):创建一个vector，元素个数为nSize,且值均为t</li>
+<li>vector(const vector&amp;):复制构造函数</li>
+<li>vector(begin,end):复制[begin,end)区间内另一个数组的元素到vector中</li>
+</ul>
+<h1 id="辗转相除法（欧几里得算法）-更相减损术"><a href="#辗转相除法（欧几里得算法）-更相减损术" class="headerlink" title="辗转相除法（欧几里得算法）+更相减损术"></a>辗转相除法（欧几里得算法）+更相减损术</h1><h1 id="求最大公约数"><a href="#求最大公约数" class="headerlink" title="求最大公约数"></a>求最大公约数</h1><h3 id="辗转相除法，-又名欧几里得算法（Euclidean-algorithm）"><a href="#辗转相除法，-又名欧几里得算法（Euclidean-algorithm）" class="headerlink" title="辗转相除法， 又名欧几里得算法（Euclidean algorithm）"></a>辗转相除法， 又名欧几里得算法（Euclidean algorithm）</h3><p><strong>这条算法基于一个定理：两个正整数a和b（a&gt;b），它们的最大公约数等于a除以b的余数c和b之间的最大公约数。</strong>比如10和25，25除以10商2余5,那么10和25的最大公约数，等同于10和5的最大公约数。</p>
+<p>采用递归的方法把问题逐步简化：</p>
+<p>先计算出a除以b的余数c，把问题转化成求出b和c的最大公约数；然后计算出b除以c的余数d，把问题转化成求出c和d的最大公约数；再然后计算出c除以d的余数e，把问题转化成求出d和e的最大公约数……</p>
+<p>以此类推，逐渐把两个较大整数之间的运算简化成两个较小整数之间的运算，直到两个数可以整除，或者其中一个数减小到1为止。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getGreastCommonDivisor</span><span class="params">(<span class="keyword">int</span> numberA,<span class="keyword">int</span> numberB)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(numberA&gt;numberB)</span><br><span class="line">        result=gcd(numberA,numberB);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        result=gcd(numberB,numberA);</span><br><span class="line">    <span class="keyword">return</span> result;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> numberA,<span class="keyword">int</span> numberB)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(numberA%numberB==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> numberB;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> gcd(numberB,numberA%b); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：当两个整数较大时，numberA%numberB取模运算性能较低。</strong></p>
+<p>例题：</p>
+<p>对于字符串 S 和 T，只有在 S = T + … + T（T 与自身连接 1 次或多次）时，我们才认定 “T 能除尽 S”。</p>
+<p>返回最长字符串 X，要求满足 X 能除尽 str1 且 X 能除尽 str2。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">gcdOfStrings</span><span class="params">(<span class="built_in">string</span> str1, <span class="built_in">string</span> str2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str1 + str2 != str2 + str1) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">return</span> str1.substr(<span class="number">0</span>, gcd(str1.<span class="built_in">size</span>(), str2.<span class="built_in">size</span>()));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;<span class="keyword">return</span> b == <span class="number">0</span>? a : gcd(b , a % b);&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="更相减损术，-出自于中国古代的《九章算术》"><a href="#更相减损术，-出自于中国古代的《九章算术》" class="headerlink" title="更相减损术， 出自于中国古代的《九章算术》"></a>更相减损术， 出自于中国古代的《九章算术》</h3><p><strong>他的原理更加简单：两个正整数a和b（a&gt;b），它们的最大公约数等于a-b的差值c和较小数b的最大公约数。</strong>比如10和25，25减去10的差是15,那么10和25的最大公约数，等同于10和15的最大公约数。</p>
+<p>通过递归来简化问题。</p>
+<p>先计算出a和b的差值c（假设a&gt;b），把问题转化成求出b和c的最大公约数；然后计算出c和b的差值d（假设c&gt;b），把问题转化成求出b和d的最大公约数；再然后计算出b和d的差值e（假设b&gt;d），把问题转化成求出d和e的最大公约数……</p>
+<p>以此类推，逐渐把两个较大整数之间的运算简化成两个较小整数之间的运算，直到两个数可以相等为止，最大公约数就是最终相等的两个数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> numberA,<span class="keyword">int</span> numberB)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(numberA==numberB)</span><br><span class="line">        <span class="keyword">return</span> numberA;</span><br><span class="line">    <span class="keyword">if</span>(numberA&lt;numberB)</span><br><span class="line">        <span class="keyword">return</span> gcd(numberB-numberA,numberA);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> gcd(numberA-numberB,numberB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：当两个整数相差悬殊时（如10000和1），运算次数过多。</strong></p>
+<h3 id="更相减损术基础上使用移位运算"><a href="#更相减损术基础上使用移位运算" class="headerlink" title="更相减损术基础上使用移位运算"></a>更相减损术基础上使用移位运算</h3><p>众所周知，<strong>移位运算的性能非常快</strong>。对于给定的正整数a和b，不难得到如下的结论。</p>
+<p>其中gcb(a,b)的意思是a,b的最大公约数函数：</p>
+<ul>
+<li><p>当a和b均为偶数，        gcb(a,b) = 2<em>gcb(a/2, b/2) = 2</em>gcb(a&gt;&gt;1, b&gt;&gt;1)</p>
+</li>
+<li><p>当a为偶数，b为奇数，gcb(a,b) = gcb(a/2, b) = gcb(a&gt;&gt;1, b)</p>
+</li>
+<li><p>当a为奇数，b为偶数，gcb(a,b) = gcb(a, b/2) = gcb(a, b&gt;&gt;1)</p>
+</li>
+<li><p>当a和b均为奇数，利用更相减损术运算一次，gcb(a,b) = gcb(b, a-b)， 此时a-b必然是偶数，又可以继续进行移位运算。</p>
+</li>
+</ul>
+<p>例如：计算10和25的最大公约数的步骤如下：</p>
+<ol>
+<li>整数10通过移位，可以转换成求5和25的最大公约数</li>
+<li>利用更相减损法，计算出25-5=20，转换成求5和20的最大公约数</li>
+<li>整数20通过移位，可以转换成求5和10的最大公约数</li>
+<li>整数10通过移位，可以转换成求5和5的最大公约数</li>
+<li>利用更相减损法，因为两数相等，所以最大公约数是5</li>
+</ol>
+<p>在两数比较小的时候，暂时看不出计算次数的优势，当两数越大，计算次数的节省就越明显。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> numberA,<span class="keyword">int</span> numberB)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(numberA==numberB)</span><br><span class="line">        <span class="keyword">return</span> numberA;</span><br><span class="line">    <span class="keyword">if</span>(numberA&lt;numberB)</span><br><span class="line">        <span class="keyword">return</span> gcd(numberB,numberA);<span class="comment">//保证A大于B，减少代码量</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//和1做按位与运算，判断奇偶</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"numberA="</span>&lt;&lt;numberA&lt;&lt;<span class="string">" numberB="</span>&lt;&lt;numberB&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">if</span>(!numberA&amp;<span class="number">1</span> &amp;&amp; !numberB&amp;<span class="number">1</span>)<span class="comment">//a和b均为偶数</span></span><br><span class="line">            <span class="keyword">return</span> gcd(numberA&gt;&gt;<span class="number">1</span>,numberB&gt;&gt;<span class="number">1</span>)&lt;&lt;<span class="number">1</span>;<span class="comment">//  gcb(a,b) = 2*gcb(a/2, b/2) = 2*gcb(a&gt;&gt;1, b&gt;&gt;1)</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!numberA&amp;<span class="number">1</span> &amp;&amp; numberB&amp;<span class="number">1</span>)<span class="comment">//当a为偶数，b为奇数</span></span><br><span class="line">            <span class="keyword">return</span> gcd(numberA&gt;&gt;<span class="number">1</span>,numberB);<span class="comment">//gcb(a,b) = gcb(a/2, b) = gcb(a&gt;&gt;1, b)</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(numberA&amp;<span class="number">1</span> &amp;&amp; !numberB&amp;<span class="number">1</span>)<span class="comment">//当a为奇数，b为偶数</span></span><br><span class="line">            <span class="keyword">return</span> gcd(numberA,numberB&gt;&gt;<span class="number">1</span>);<span class="comment">//gcb(a,b) = gcb(a, b/2) = gcb(a, b&gt;&gt;1)</span></span><br><span class="line">        <span class="keyword">else</span><span class="comment">//当a和b均为奇数，利用更相减损术运算一次，此时a-b必然是偶数</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"numberA="</span>&lt;&lt;numberA&lt;&lt;<span class="string">" numberB="</span>&lt;&lt;numberB&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">return</span> gcd(numberB,numberA-numberB);</span><br><span class="line">        &#125;</span><br><span class="line">           </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/01/hello_flask/" rel="next" title="hello_flask">
+                <i class="fa fa-chevron-left"></i> hello_flask
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/16/C++%E4%B8%80%E4%BA%9B%E9%A2%98/" rel="prev" title="C++一些题">
+                C++一些题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">纯色月光</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/chunseyueguang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#amp-amp-和-的短路运算"><span class="nav-number">1.</span> <span class="nav-text">&amp;&amp;和||的短路运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#amp-amp-和-的短路运算有什么用？"><span class="nav-number">1.1.</span> <span class="nav-text">&amp;&amp;和||的短路运算有什么用？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vector"><span class="nav-number"></span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#辗转相除法（欧几里得算法）-更相减损术"><span class="nav-number"></span> <span class="nav-text">辗转相除法（欧几里得算法）+更相减损术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求最大公约数"><span class="nav-number"></span> <span class="nav-text">求最大公约数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#辗转相除法，-又名欧几里得算法（Euclidean-algorithm）"><span class="nav-number">0.1.</span> <span class="nav-text">辗转相除法， 又名欧几里得算法（Euclidean algorithm）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更相减损术，-出自于中国古代的《九章算术》"><span class="nav-number">0.2.</span> <span class="nav-text">更相减损术， 出自于中国古代的《九章算术》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更相减损术基础上使用移位运算"><span class="nav-number">0.3.</span> <span class="nav-text">更相减损术基础上使用移位运算</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">纯色月光</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

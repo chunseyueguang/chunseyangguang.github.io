@@ -187,7 +187,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -268,6 +268,829 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sunqingcheng.club/2020/03/17/Excel%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="纯色月光">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="纯色月光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/17/Excel%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0%E5%BD%95/" itemprop="url">Excel的学习小记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-17T19:05:34+08:00">
+                2020-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Excel的学习小记录根据T盘提供的素材处理工资数据（20分）"><a href="#Excel的学习小记录根据T盘提供的素材处理工资数据（20分）" class="headerlink" title="Excel的学习小记录根据T盘提供的素材处理工资数据（20分）"></a>Excel的学习小记录根据T盘提供的素材处理工资数据（20分）</h1><p>1.打开“工资.xlsm”，参考样图，按下列要求操作：</p>
+<p>（1）在工作表“奖金”的E列，利用公式计算奖金（奖金=工作量*20，但若违纪奖金为零）；</p>
+<p>（2）利用VLOOKUP函数，将“奖金”合并到工作表“工资表”的对应列；</p>
+<p>（3）根据工作表“工资表”数据，在工作表“职称分析”中，利用COUNTIF函数统计每类职称人数；</p>
+<p>（4）在工作表“工资表”中，按“部门”升序；</p>
+<p>（5）在模块1的“分页()”中，填充代码实现在工作表“工资表”中，自动插入分页符，使得每部门职工强制分页；</p>
+<p>（6）执行“分页()”过程，在工作表“工资表”中插入分页符；</p>
+<p>2.保存工作簿“工资.xlsm”及其代码，存放于T盘中。</p>
+<p>样图：</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel1_examples1.png" alt=""></p>
+<p>（1）在工作表“奖金”的E列，利用公式计算奖金（奖金=工作量*20，但若违纪奖金为零）；</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel1_001.png" alt=""></p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel1_002.png" alt=""></p>
+<p>结果：</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel1_003.png" alt=""></p>
+<p>参考：</p>
+<p><a href="https://support.office.com/zh-cn/article/将-if-函数与-and、or-以及-not-函数配合使用-d895f58c-b36c-419e-b1f2-5c193a236d97" target="_blank" rel="noopener">链接：<strong>将 IF 函数与 AND、OR 以及 NOT 函数配合使用</strong></a></p>
+<p>（2）利用VLOOKUP函数，将“奖金”合并到工作表“工资表”的对应列；</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel2_001.png" alt=""></p>
+<p>选中A列</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel2_002.png" alt=""></p>
+<p>选中A-&gt;E从 （注释：匹配变量那一栏开始选 一直到匹配数据的那一栏为止）</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel2_003.png" alt=""></p>
+<p>在Col_index_num中输入5。在Range_lookup那一栏输入0（也就是没有数据的显示错误）。</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel2_004.png" alt=""></p>
+<p>=VLOOKUP(A:A,奖金!A:E,5,0),然后向下拖.<br>以上公式为：工资表中F2单元格要根据前列的工号从奖金表中复制奖金,A:A为功耗列，奖金!A:E为奖金表中的工号列和奖金列，5表示从工号开始的第5列,0表示唯一对应项。</p>
+<p>参考：</p>
+<ol>
+<li><a href="https://www.zhihu.com/question/22216567" target="_blank" rel="noopener">https://www.zhihu.com/question/22216567</a></li>
+<li><a href="https://support.office.com/zh-cn/article/VLOOKUP-函数-0BBC8083-26FE-4963-8AB8-93A18AD188A1" target="_blank" rel="noopener">https://support.office.com/zh-cn/article/VLOOKUP-%E5%87%BD%E6%95%B0-0BBC8083-26FE-4963-8AB8-93A18AD188A1</a></li>
+<li><a href="https://support.office.com/zh-cn/article/以与-excel-早期版本兼容的方式保存-excel-工作簿-169a0336-965b-4430-8554-4e7b5db79947" target="_blank" rel="noopener">https://support.office.com/zh-cn/article/%E4%BB%A5%E4%B8%8E-excel-%E6%97%A9%E6%9C%9F%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BF%9D%E5%AD%98-excel-%E5%B7%A5%E4%BD%9C%E7%B0%BF-169a0336-965b-4430-8554-4e7b5db79947</a></li>
+<li><a href="https://www.51wikihow.com/excel/excel-how-to-find-values-from-another-workbook-via-vlookup.html" target="_blank" rel="noopener">https://www.51wikihow.com/excel/excel-how-to-find-values-from-another-workbook-via-vlookup.html</a></li>
+</ol>
+<p>（3）根据工作表“工资表”数据，在工作表“职称分析”中，利用COUNTIF函数统计每类职称人数；</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel3_001.png" alt=""></p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel3_002.png" alt=""></p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel3_003.png" alt=""></p>
+<p>参考：</p>
+<p><a href="https://support.office.com/zh-cn/article/countif-函数-e0de10c6-f885-4e71-abb4-1f464816df34?NS=EXCEL&Version=19&SysLcid=2052&UiLcid=2052&AppVer=ZXL190&HelpId=xlmain11.chm60394&ui=zh-CN&rs=zh-CN&ad=CN" target="_blank" rel="noopener">https://support.office.com/zh-cn/article/countif-%e5%87%bd%e6%95%b0-e0de10c6-f885-4e71-abb4-1f464816df34?NS=EXCEL&amp;Version=19&amp;SysLcid=2052&amp;UiLcid=2052&amp;AppVer=ZXL190&amp;HelpId=xlmain11.chm60394&amp;ui=zh-CN&amp;rs=zh-CN&amp;ad=CN</a></p>
+<p>（4）在工作表“工资表”中，按“部门”升序；</p>
+<p>在单元格区域中，按照需要的顺序从上到下输入要排序的值并选中，之后点击文件。如下例所示。</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_001.png" alt=""></p>
+<p>转到“<strong>文件</strong>”&gt;“<strong>选项</strong>”&gt;“<strong>高级</strong>”&gt;“<strong>常规</strong>”&gt;“<strong>编辑自定义序列</strong>”，然后在“<strong>自定义序列</strong>”对话框中单击“<strong>导入</strong>”，然后单击“<strong>确定</strong>”两次。</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_002.png" alt=""></p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_003.png" alt=""></p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_004.png" alt="">在要排序的列中选择单元格。在<strong>“数据”</strong>选项卡的<strong>“排序和筛选”</strong>组中，单击<strong>“排序”</strong>。</p>
+<p>在“<strong>排序</strong>”对话框中“<strong>列</strong>”下的“<strong>排序依据</strong>”框中，选择要按自定义序列排序的列。</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_005.png" alt=""></p>
+<p>在“<strong>次序</strong>”下，选择“<strong>自定义序列</strong>”。在“<strong>自定义序列</strong>”对话框中，选择所需的序列。 以上例中创建的自定义序列为例，单击“<strong>一系、二系、三系、四系</strong>”。确定。</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_006.png" alt=""></p>
+<p>结果</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel4_007.png" alt=""></p>
+<p>参考：</p>
+<p><a href="https://support.office.com/zh-cn/article/对区域或表中的数据进行排序-62d0b95d-2a90-4610-a6ae-2e545c4a4654" target="_blank" rel="noopener">https://support.office.com/zh-cn/article/%E5%AF%B9%E5%8C%BA%E5%9F%9F%E6%88%96%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F-62d0b95d-2a90-4610-a6ae-2e545c4a4654</a></p>
+<p>（5）在模块1的“分页()”中，填充代码实现在工作表“工资表”中，自动插入分页符，使得每部门职工强制分页；</p>
+<p>如果Excel上没有显示“开发工具”可据以下方法显示“开发工具”</p>
+<p>打开Excel，如下图所示。然后在“文件”菜单中找到“选项”。如下图。</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel5_001.png" alt=""></p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel5_002.png" alt=""></p>
+<p>找到“自定义功能区”，如下图中箭头提示的按钮。</p>
+<p>在“主选项卡”默认情况下，我们就看到了关于“开发工具”的选择项了。把前面的方框点击勾选。如下图。</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel5_003.png" alt=""></p>
+<p>结果：</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5Cexcel5_004.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sunqingcheng.club/2020/03/16/C++%E4%B8%80%E4%BA%9B%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="纯色月光">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="纯色月光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/16/C++%E4%B8%80%E4%BA%9B%E9%A2%98/" itemprop="url">C++一些题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-16T18:51:14+08:00">
+                2020-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="二进制链表转整数"><a href="#二进制链表转整数" class="headerlink" title="二进制链表转整数"></a><a href="https://leetcode-cn.com/problems/convert-binary-number-in-a-linked-list-to-integer/" target="_blank" rel="noopener">二进制链表转整数</a></h4><p>给你一个单链表的引用结点 head。链表中每个结点的值不是 0 就是 1。已知此链表是一个整数数字的二进制表示形式。</p>
+<p>请你返回该链表所表示数字的 十进制值 。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/12/15/graph-1.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：head &#x3D; [1,0,1]</span><br><span class="line">输出：5</span><br><span class="line">解释：二进制数 (101) 转化为十进制数 (5)</span><br></pre></td></tr></table></figure>
+
+
+<p>示例 2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head &#x3D; [0]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+
+
+<p>示例 3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head &#x3D; [1]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
+
+
+<p>示例 4：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head &#x3D; [1,0,0,1,0,0,1,1,1,0,0,0,0,0,0]</span><br><span class="line">输出：18880</span><br></pre></td></tr></table></figure>
+
+
+<p>示例 5：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head &#x3D; [0,0]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+
+<p>提示：</p>
+<p>链表不为空。<br>链表的结点总数不超过 30。<br>每个结点的值不是 0 就是 1。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getDecimalValue</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode *tmp = head;</span><br><span class="line">        <span class="keyword">int</span> re = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (tmp != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            re = (re &lt;&lt; <span class="number">1</span>) | (tmp-&gt;val);<span class="comment">//*2  +1或者0</span></span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> re;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sunqingcheng.club/2020/03/08/C++/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="纯色月光">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="纯色月光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/08/C++/" itemprop="url">C++</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T02:19:41+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="amp-amp-和-的短路运算"><a href="#amp-amp-和-的短路运算" class="headerlink" title="&amp;&amp;和||的短路运算"></a>&amp;&amp;和||的短路运算</h2><p>&amp;&amp;和||的短路运算，是指如果在进行表达式的运算过程，通过判断已经明确的知道整个表达式的结果，那么就不会进行后面表达式的运算判断。</p>
+<p>例如：<br>表达式1 || 表达式2 || 表达式3…|| 表达式n，如果表达式1的运算结果为true，则整个表达式的结果为true，同时不会再对后面的表达式2、表达式3到表达式n进行运算判断。如果表达式1的运算结果为false，则根据表达式2的运算结果继续判断。<br>表达式1 &amp;&amp; 表达式2 &amp;&amp; 表达式3…&amp;&amp; 表达式n，如果表达式1的运算结果为false，则整个表达式的结果为false，同时不会再对后面的表达式2、表达式3到表达式n进行运算判断。如果表达式1的运算结果为true，则根据表达式2的运算结果继续判断。</p>
+<h3 id="amp-amp-和-的短路运算有什么用？"><a href="#amp-amp-和-的短路运算有什么用？" class="headerlink" title="&amp;&amp;和||的短路运算有什么用？"></a>&amp;&amp;和||的短路运算有什么用？</h3><p>1、由于&amp;&amp;和||的表达式存在短路运算现象，在短路之后不会对后面的表达式进行运算，所以含有&amp;&amp;和||的表达式最好不要进行变量的赋值和运算操作，可以先计算好每个表达式的结果，直接拿结果进行&amp;&amp;和||的运算。<br>在代码编写的时候就要注意这一点，以防由于&amp;&amp;和||的短路运算导致写出来的代码运算结果与预期的不同。<br>2、把能快速确定整个表达式结果true或false的表达式放在前面，这样由于短路运算后面的表达式可能不会被运算到，节省处理器的运算时间。</p>
+<p>例子：</p>
+<p>求 <code>1+2+...+n</code> ，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">sumNums</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res=n;</span><br><span class="line">        n&amp;&amp;(res += sumNums(n<span class="number">-1</span>));</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h1><p>向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）。</p>
+<p>1.构造函数</p>
+<ul>
+<li>vector():创建一个空vector</li>
+<li>vector(int nSize):创建一个vector,元素个数为nSize</li>
+<li>vector(int nSize,const t&amp; t):创建一个vector，元素个数为nSize,且值均为t</li>
+<li>vector(const vector&amp;):复制构造函数</li>
+<li>vector(begin,end):复制[begin,end)区间内另一个数组的元素到vector中</li>
+</ul>
+<h1 id="辗转相除法（欧几里得算法）-更相减损术"><a href="#辗转相除法（欧几里得算法）-更相减损术" class="headerlink" title="辗转相除法（欧几里得算法）+更相减损术"></a>辗转相除法（欧几里得算法）+更相减损术</h1><h1 id="求最大公约数"><a href="#求最大公约数" class="headerlink" title="求最大公约数"></a>求最大公约数</h1><h3 id="辗转相除法，-又名欧几里得算法（Euclidean-algorithm）"><a href="#辗转相除法，-又名欧几里得算法（Euclidean-algorithm）" class="headerlink" title="辗转相除法， 又名欧几里得算法（Euclidean algorithm）"></a>辗转相除法， 又名欧几里得算法（Euclidean algorithm）</h3><p><strong>这条算法基于一个定理：两个正整数a和b（a&gt;b），它们的最大公约数等于a除以b的余数c和b之间的最大公约数。</strong>比如10和25，25除以10商2余5,那么10和25的最大公约数，等同于10和5的最大公约数。</p>
+<p>采用递归的方法把问题逐步简化：</p>
+<p>先计算出a除以b的余数c，把问题转化成求出b和c的最大公约数；然后计算出b除以c的余数d，把问题转化成求出c和d的最大公约数；再然后计算出c除以d的余数e，把问题转化成求出d和e的最大公约数……</p>
+<p>以此类推，逐渐把两个较大整数之间的运算简化成两个较小整数之间的运算，直到两个数可以整除，或者其中一个数减小到1为止。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getGreastCommonDivisor</span><span class="params">(<span class="keyword">int</span> numberA,<span class="keyword">int</span> numberB)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(numberA&gt;numberB)</span><br><span class="line">        result=gcd(numberA,numberB);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        result=gcd(numberB,numberA);</span><br><span class="line">    <span class="keyword">return</span> result;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> numberA,<span class="keyword">int</span> numberB)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(numberA%numberB==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> numberB;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> gcd(numberB,numberA%b); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：当两个整数较大时，numberA%numberB取模运算性能较低。</strong></p>
+<p>例题：</p>
+<p>对于字符串 S 和 T，只有在 S = T + … + T（T 与自身连接 1 次或多次）时，我们才认定 “T 能除尽 S”。</p>
+<p>返回最长字符串 X，要求满足 X 能除尽 str1 且 X 能除尽 str2。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">gcdOfStrings</span><span class="params">(<span class="built_in">string</span> str1, <span class="built_in">string</span> str2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str1 + str2 != str2 + str1) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">return</span> str1.substr(<span class="number">0</span>, gcd(str1.<span class="built_in">size</span>(), str2.<span class="built_in">size</span>()));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;<span class="keyword">return</span> b == <span class="number">0</span>? a : gcd(b , a % b);&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="更相减损术，-出自于中国古代的《九章算术》"><a href="#更相减损术，-出自于中国古代的《九章算术》" class="headerlink" title="更相减损术， 出自于中国古代的《九章算术》"></a>更相减损术， 出自于中国古代的《九章算术》</h3><p><strong>他的原理更加简单：两个正整数a和b（a&gt;b），它们的最大公约数等于a-b的差值c和较小数b的最大公约数。</strong>比如10和25，25减去10的差是15,那么10和25的最大公约数，等同于10和15的最大公约数。</p>
+<p>通过递归来简化问题。</p>
+<p>先计算出a和b的差值c（假设a&gt;b），把问题转化成求出b和c的最大公约数；然后计算出c和b的差值d（假设c&gt;b），把问题转化成求出b和d的最大公约数；再然后计算出b和d的差值e（假设b&gt;d），把问题转化成求出d和e的最大公约数……</p>
+<p>以此类推，逐渐把两个较大整数之间的运算简化成两个较小整数之间的运算，直到两个数可以相等为止，最大公约数就是最终相等的两个数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> numberA,<span class="keyword">int</span> numberB)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(numberA==numberB)</span><br><span class="line">        <span class="keyword">return</span> numberA;</span><br><span class="line">    <span class="keyword">if</span>(numberA&lt;numberB)</span><br><span class="line">        <span class="keyword">return</span> gcd(numberB-numberA,numberA);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> gcd(numberA-numberB,numberB);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：当两个整数相差悬殊时（如10000和1），运算次数过多。</strong></p>
+<h3 id="更相减损术基础上使用移位运算"><a href="#更相减损术基础上使用移位运算" class="headerlink" title="更相减损术基础上使用移位运算"></a>更相减损术基础上使用移位运算</h3><p>众所周知，<strong>移位运算的性能非常快</strong>。对于给定的正整数a和b，不难得到如下的结论。</p>
+<p>其中gcb(a,b)的意思是a,b的最大公约数函数：</p>
+<ul>
+<li><p>当a和b均为偶数，        gcb(a,b) = 2<em>gcb(a/2, b/2) = 2</em>gcb(a&gt;&gt;1, b&gt;&gt;1)</p>
+</li>
+<li><p>当a为偶数，b为奇数，gcb(a,b) = gcb(a/2, b) = gcb(a&gt;&gt;1, b)</p>
+</li>
+<li><p>当a为奇数，b为偶数，gcb(a,b) = gcb(a, b/2) = gcb(a, b&gt;&gt;1)</p>
+</li>
+<li><p>当a和b均为奇数，利用更相减损术运算一次，gcb(a,b) = gcb(b, a-b)， 此时a-b必然是偶数，又可以继续进行移位运算。</p>
+</li>
+</ul>
+<p>例如：计算10和25的最大公约数的步骤如下：</p>
+<ol>
+<li>整数10通过移位，可以转换成求5和25的最大公约数</li>
+<li>利用更相减损法，计算出25-5=20，转换成求5和20的最大公约数</li>
+<li>整数20通过移位，可以转换成求5和10的最大公约数</li>
+<li>整数10通过移位，可以转换成求5和5的最大公约数</li>
+<li>利用更相减损法，因为两数相等，所以最大公约数是5</li>
+</ol>
+<p>在两数比较小的时候，暂时看不出计算次数的优势，当两数越大，计算次数的节省就越明显。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> numberA,<span class="keyword">int</span> numberB)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(numberA==numberB)</span><br><span class="line">        <span class="keyword">return</span> numberA;</span><br><span class="line">    <span class="keyword">if</span>(numberA&lt;numberB)</span><br><span class="line">        <span class="keyword">return</span> gcd(numberB,numberA);<span class="comment">//保证A大于B，减少代码量</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//和1做按位与运算，判断奇偶</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"numberA="</span>&lt;&lt;numberA&lt;&lt;<span class="string">" numberB="</span>&lt;&lt;numberB&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">if</span>(!numberA&amp;<span class="number">1</span> &amp;&amp; !numberB&amp;<span class="number">1</span>)<span class="comment">//a和b均为偶数</span></span><br><span class="line">            <span class="keyword">return</span> gcd(numberA&gt;&gt;<span class="number">1</span>,numberB&gt;&gt;<span class="number">1</span>)&lt;&lt;<span class="number">1</span>;<span class="comment">//  gcb(a,b) = 2*gcb(a/2, b/2) = 2*gcb(a&gt;&gt;1, b&gt;&gt;1)</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!numberA&amp;<span class="number">1</span> &amp;&amp; numberB&amp;<span class="number">1</span>)<span class="comment">//当a为偶数，b为奇数</span></span><br><span class="line">            <span class="keyword">return</span> gcd(numberA&gt;&gt;<span class="number">1</span>,numberB);<span class="comment">//gcb(a,b) = gcb(a/2, b) = gcb(a&gt;&gt;1, b)</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(numberA&amp;<span class="number">1</span> &amp;&amp; !numberB&amp;<span class="number">1</span>)<span class="comment">//当a为奇数，b为偶数</span></span><br><span class="line">            <span class="keyword">return</span> gcd(numberA,numberB&gt;&gt;<span class="number">1</span>);<span class="comment">//gcb(a,b) = gcb(a, b/2) = gcb(a, b&gt;&gt;1)</span></span><br><span class="line">        <span class="keyword">else</span><span class="comment">//当a和b均为奇数，利用更相减损术运算一次，此时a-b必然是偶数</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"numberA="</span>&lt;&lt;numberA&lt;&lt;<span class="string">" numberB="</span>&lt;&lt;numberB&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">return</span> gcd(numberB,numberA-numberB);</span><br><span class="line">        &#125;</span><br><span class="line">           </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sunqingcheng.club/2020/02/01/hello_flask/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="纯色月光">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="纯色月光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/01/hello_flask/" itemprop="url">hello_flask</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-01T15:15:14+08:00">
+                2020-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用vscode编写python<br>安装Visual Studio代码和Python扩展<br>安装Python解释器<br>验证：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py -<span class="number">3</span> --version</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><figcaption><span>bush</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir hello</span><br><span class="line">cd hello</span><br><span class="line">code .</span><br></pre></td></tr></table></figure>
+
+<p>通过打开<strong>命令面板</strong>（Ctrl + Shift + P）选择一个Python 3解释器</p>
+<p>在<code>hello.py</code>中输入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msg = <span class="string">"Hello World"</span></span><br><span class="line">print(msg)</span><br></pre></td></tr></table></figure>
+
+<p>F5运行</p>
+<p>创建一个名为<code>standardplot.py</code>的新文件<br>贴以下代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">20</span>, <span class="number">100</span>)  <span class="comment"># Create a list of evenly-spaced numbers over the range</span></span><br><span class="line">plt.plot(x, np.sin(x))       <span class="comment"># Plot the sine of each x point</span></span><br><span class="line">plt.show()                   <span class="comment"># Display the plot</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来，尝试使用“ Python：当前文件”配置在调试器中运行文件。</p>
+<p>除非以前已经安装了<code>matplotlib</code>软件包，否则应该看到消息<strong>“ ModuleNotFoundError：没有名为’matplotlib’的模块”</strong>。这样的消息表明所需的软件包在您的系统中不可用。</p>
+<p>要安装<code>matplotlib</code>软件包，停止调试器并使用命令面板运行<strong>终端：创建新的集成终端</strong>（Ctrl + Shift +`）。该命令为您选择的解释器打开命令提示符。</p>
+<p>Python开发人员中的最佳实践是避免将软件包安装到全局解释器环境中。相反，您使用的是特定<code>virtual environment</code>于项目的项目，其中包含全局解释器的副本。激活该环境后，您随后安装的所有软件包都将与其他环境隔离。这种隔离减少了因版本冲突而引起的许多复杂情况。要创建<em>虚拟环境</em>并安装所需的软件包，请根据您的操作系统输入以下命令：</p>
+<p>1.创建并激活虚拟环境</p>
+<figure class="highlight plain"><figcaption><span>bush</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">py -3 -m venv .venv</span><br><span class="line">.venv\scripts\activate</span><br></pre></td></tr></table></figure>
+
+<p>2.使用<strong>Python</strong>选择新环境<strong>：</strong>从 <strong>“命令面板”中</strong> <strong>选择“解释器”</strong>命令。</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C002.png" alt=""></p>
+<p>3.安装软件包</p>
+<figure class="highlight plain"><figcaption><span>bush</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install matplotlib</span><br></pre></td></tr></table></figure>
+
+<p>4.立即重新运行程序（带调试器或不带调试器），过一会儿，将出现一个带有输出的绘图窗口：</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C006.png" alt=""></p>
+<p>5.完成后，在终端窗口中键入<code>deactivate</code>以停用虚拟环境。</p>
+<p>使用vscode编写python web （模板flask）</p>
+<p>1.新建一个文件夹，hello_flask</p>
+<p>2.在该文件夹中，使用以下命令（适用于您的计算机）创建一个<code>env</code>基于当前解释器命名的虚拟环境：</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C1.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows</span><br><span class="line">python -m venv env</span><br></pre></td></tr></table></figure>
+
+<p>3.打开vscode（运行 code .）使用“ <strong>文件”</strong> &gt;“ <strong>打开文件夹”</strong>命令来在VS Code中打开项目文件夹。</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C2.png" alt=""></p>
+<p>4.在VS Code中，打开“命令面板”（“ <strong>视图”</strong> &gt;“ <strong>命令面板”</strong>或（Ctrl + Shift + P））。然后选择<strong>Python：Select Interpreter</strong>命令：</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C001.png" alt=""></p>
+<p>5.该命令列出了VS Code可以自动定位的可用解释器的列表（您的列表会有所不同；如果看不到所需的解释器，请参阅“ <a href="https://code.visualstudio.com/docs/python/environments" target="_blank" rel="noopener">配置Python环境”</a>）。从列表中，选择项目文件夹中以<code>./env</code>或开头的虚拟环境<code>.\env</code>：</p>
+<p><img src="D:%5Capp%5CHexo%5Csource%5Cuploads%5C002.png" alt=""></p>
+<p>6.运行<strong>终端：</strong>从命令面板<strong>创建新的集成终端</strong>（Ctrl + Shift +`），该命令面板将创建终端并通过运行其激活脚本自动激活虚拟环境。</p>
+<p><strong>注意</strong>：在Windows上，如果您的默认终端类型是PowerShell，则可能会看到一个错误，表明它无法运行activate.ps1，因为系统上已禁用了运行脚本。该错误提供了有关如何允许脚本的信息链接。否则，请使用<strong>终端：选择默认外壳</strong>，将“命令提示符”或“ Git Bash”设置为默认值。</p>
+<p>7.通过在VS Code终端中运行以下命令之一，在虚拟环境中安装Flask：</p>
+<figure class="highlight plain"><figcaption><span>bush</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Windows</span><br><span class="line">pip install flask</span><br></pre></td></tr></table></figure>
+
+<p>现在，您已经可以使用一个独立的环境来编写Flask代码。使用“ <strong>终端：创建新的集成终端”</strong>时，“ VS代码”会自动激活环境。如果打开单独的命令提示符或终端，请通过运行<code>source env/bin/activate</code>（Linux / macOS）或<code>env\scripts\activate</code>（Windows）激活环境。您知道当命令提示符开头显示<strong>（env）</strong>时环境已激活。</p>
+<p>在该文件夹下新建一个hello_flask.py</p>
+<p>内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello Flask"</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:	<span class="comment">##如果是主程序</span></span><br><span class="line">    app.run(port=<span class="number">8888</span>,debug=<span class="literal">True</span>)	<span class="comment">##debuge为true,修改时会自动更新</span></span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sunqingcheng.club/2020/02/01/flask/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="纯色月光">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="纯色月光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/01/flask/" itemprop="url">flask</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-01T00:46:38+08:00">
+                2020-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用vscode编写python web （模板flask）</p>
+<p>新建一个文件夹，test_flask</p>
+<p>在该文件夹下新建一个hello_flask.py</p>
+<p>内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello Flask"</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:	<span class="comment">##如果是主程序</span></span><br><span class="line">    app.run(port=<span class="number">8888</span>,debug=<span class="literal">True</span>)	<span class="comment">##debuge为true,修改时会自动更新</span></span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://sunqingcheng.club/2020/01/07/hexo-vide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -287,7 +1110,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/07/hexo-vide/" itemprop="url">hexo-vide</a></h1>
+                <a class="post-title-link" href="/2020/01/07/hexo-vide/" itemprop="url">记录一下第一次搭建博客的过程</a></h1>
         
 
         <div class="post-meta">
@@ -322,8 +1145,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%A7%86%E9%A2%91/" itemprop="url" rel="index">
-                    <span itemprop="name">视频</span>
+                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
+                    <span itemprop="name">记录</span>
                   </a>
                 </span>
 
@@ -361,8 +1184,15 @@
       
         
           
-            <h2 id="文章段落1"><a href="#文章段落1" class="headerlink" title="文章段落1"></a>文章段落1</h2><p>试一试1</p>
-<h2 id="文章段落2"><a href="#文章段落2" class="headerlink" title="文章段落2"></a>文章段落2</h2><p>试一试2</p>
+            <h1 id="一、通过官方的帮助文档学习"><a href="#一、通过官方的帮助文档学习" class="headerlink" title="一、通过官方的帮助文档学习"></a>一、通过官方的帮助文档学习</h1><p>官方的帮助文档<a href="https://hexo.io/docs/" target="_blank" rel="noopener">https://hexo.io/docs/</a></p>
+<h1 id="二、遇到的问题"><a href="#二、遇到的问题" class="headerlink" title="二、遇到的问题"></a>二、遇到的问题</h1><h2 id="1-、Cannot-GET-tags-20"><a href="#1-、Cannot-GET-tags-20" class="headerlink" title="1 、Cannot GET /tags/%20/"></a>1 、Cannot GET /tags/%20/</h2><p>主题里的_config.yml里的95行,menu下的</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">tags</span></span><br></pre></td></tr></table></figure>
+<p>/和||之间的空格删掉，删掉后如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tags:</span> <span class="string">/tags/||</span> <span class="string">tags</span></span><br></pre></td></tr></table></figure>
+
+<p>即可。</p>
+<p>其他也以此类推</p>
+<h2 id="2、绑定个人域名"><a href="#2、绑定个人域名" class="headerlink" title="2、绑定个人域名"></a>2、绑定个人域名</h2><p>添加CNAME：在项目的source文件夹下新建一个名为CNAME的文件，在里面添加你购买的域名，比如我添加的是sunqingcheng.club。<br>注：我最开始尝试在github上直接直接写了一个CNAME，里面写我的域名，之后在Settings里的Custom domain 里写我的域名，但这么做每次发布自己的网页之后，这配置的都会被清空。最终在source文件夹里写CNAME，这样每次发布的时候就不需要在写一次域名了。</p>
 
           
         
@@ -598,7 +1428,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -620,7 +1450,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
